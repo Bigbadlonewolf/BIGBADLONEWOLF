@@ -7,12 +7,15 @@ I am a cybersecurity and cloud security professional with a strong focus on secu
 My work combines security best practices with modern cloud technologies to help organizations build secure, scalable, and resilient environments.
 
 Certifications
+
 CISSP (Certified Information Systems Security Professional)
 CCSP (Certified Cloud Security Professional)
 CISM (Certified Information Security Manager)
 Google Cloud Professional Cloud Architect (GCP-PCA)
+ISSAP(Information systems security Archeitect professional)
 
 Areas of Interest
+
 Security Architecture
 Cloud Security
 Identity and Access Management (IAM)
@@ -21,6 +24,7 @@ Security Engineering
 Cloud Vulnerability management
 Zero Trust Architecture
 AI Security and Emerging Technologies
+
 
 This repository showcases projects, labs, architectural designs, automation scripts, and research that demonstrate practical application of cybersecurity and cloud security principles.
 
