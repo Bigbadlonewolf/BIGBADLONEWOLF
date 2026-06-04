@@ -1,5 +1,5 @@
 # <a href="https://www.linkedin.com/in/lanre-oluokun-04256040/">LANRE OLUOKUN'S</a> IT and Cybersecurity Project Portfolio 🔐
-Cybersecurity Architect | Cloud Security Professional | CISSP • CCSP • CISM • GCP-PCA | Building Secure-by-Design Solutions 🚀
+Cybersecurity Architect | Cloud Security Professional | CISSP • CCSP • CISM • ISSAP | Building Secure-by-Design Solutions 🚀
 Welcome to my GitHub portfolio.
 
 I am a cybersecurity and cloud security professional with a strong focus on security architecture, cloud governance, risk management, and enterprise security strategy. 
