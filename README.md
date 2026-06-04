@@ -1,16 +1,14 @@
-# <a href="https://www.linkedin.com/in/joshmadakor/">LANRE OLUOKUN'S</a> IT and Cybersecurity Project Portfolio 🔐
+# <a href="https://www.linkedin.com/in/lanre-oluokun-04256040/">LANRE OLUOKUN'S</a> IT and Cybersecurity Project Portfolio 🔐
 
-I'm passionate about cybersecurity and love tackling complex challenges through hands-on projects. From vulnerability management to threat detection, these projects allow me to dive deep into the ever-evolving landscape of cybersecurity. Please feel free to check them out and see the work I’ve put into enhancing security operations and processes!
+
 
 
 ## ⚠️ Vulnerability Management Projects
 
 - **[Vulnerability Management Program Implementation](https://github.com/Bigbadlonewolf/Vulnerability-Management/tree/main)**
-- **[Programmatic Vulnerability Remediations (PowerShell and BASH)](https://github.com/joshcybertest/programmatic-vulnerability-remediations)**
+*
 
-## 🚨 Threat Hunting and Security Operations
-
-- **[Threat Hunting Scenario (Tor Browser Usage)](https://github.com/joshmadakor0/threat-hunting-scenario-tor)**
+## 
 
 <hr/>
 
