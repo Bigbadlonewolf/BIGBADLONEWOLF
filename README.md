@@ -45,8 +45,7 @@ Thank you for visiting my GitHub profile.
 
 
 [twitter]: https://twitter.com/IAMOLANREWAJU
-[linkedin]: https://linkedin.com/in/lanre-oluokun-cissp-cism-crisc-04256040
-
+[linkedin]: https://linkedin.com/in/www.linkedin.com/in/lanre-oluokun-04256040
 <!--
 <img width="35" alt="image" src="https://github.com/user-attachments/assets/2f41c7cd-5ea8-4475-b451-a37161b6c3fb"> 
 <img width="35" alt="image" src="https://github.com/user-attachments/assets/77649969-9910-4994-8b96-74a116cfb2a8">
