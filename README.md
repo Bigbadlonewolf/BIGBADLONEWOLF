@@ -1,5 +1,30 @@
 # <a href="https://www.linkedin.com/in/lanre-oluokun-04256040/">LANRE OLUOKUN'S</a> IT and Cybersecurity Project Portfolio 🔐
+Welcome to my GitHub portfolio.
 
+I am a cybersecurity and cloud security professional with a strong focus on security architecture, cloud governance, risk management, and enterprise security strategy. 
+My work combines security best practices with modern cloud technologies to help organizations build secure, scalable, and resilient environments.
+
+Certifications
+CISSP (Certified Information Systems Security Professional)
+CCSP (Certified Cloud Security Professional)
+CISM (Certified Information Security Manager)
+Google Cloud Professional Cloud Architect (GCP-PCA)
+
+Areas of Interest
+Security Architecture
+Cloud Security
+Identity and Access Management (IAM)
+Governance, Risk & Compliance (GRC)
+Security Engineering
+Cloud Vulnerability management
+Zero Trust Architecture
+AI Security and Emerging Technologies
+
+This repository showcases projects, labs, architectural designs, automation scripts, and research that demonstrate practical application of cybersecurity and cloud security principles.
+
+I am committed to continuous learning, knowledge sharing, and building secure solutions that enable business innovation.
+
+Thank you for visiting my GitHub profile.
 
 
 
