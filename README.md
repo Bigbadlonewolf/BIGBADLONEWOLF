@@ -1,58 +1,46 @@
-# <a href="https://www.linkedin.com/in/lanre-oluokun-04256040/">LANRE OLUOKUN'S</a> IT and Cybersecurity Project Portfolio 🔐
-Cybersecurity Architect | Cloud Security Professional | CISSP • CCSP • CISM • ISSAP | Building Secure-by-Design Solutions 🚀
+# Lanre Oluokun
 
-Welcome to my GitHub portfolio.
+Cybersecurity Architect · Cloud Security Professional · Building Secure-by-Design Solutions
 
-I am a cybersecurity and cloud security professional with a strong focus on security architecture, cloud governance, risk management, and enterprise security strategy. 
-My work combines security best practices with modern cloud technologies to help organizations build secure, scalable, and resilient environments.
+I work at the intersection of security architecture, cloud governance, and risk management — helping organisations build environments that are secure, scalable, and audit-ready. My projects combine hands-on implementation with policy enforcement, automation, and compliance mapping.
 
-Certifications
+---
 
-CISSP (Certified Information Systems Security Professional)
-CCSP (Certified Cloud Security Professional)
-CISM (Certified Information Security Manager)
-Google Cloud Professional Cloud Architect (GCP-PCA)
-ISSAP(Information systems security Archeitect professional)
+## Certifications
 
-Areas of Interest
+- CISSP — Certified Information Systems Security Professional
+- CCSP — Certified Cloud Security Professional
+- CISM — Certified Information Security Manager
+- ISSAP — Information Systems Security Architecture Professional
+- Google Cloud Professional Cloud Architect (GCP-PCA)
 
-Security Architecture
-Cloud Security
-Identity and Access Management (IAM)
-Governance, Risk & Compliance (GRC)
-Security Engineering
-Cloud Vulnerability management
-Zero Trust Architecture
-AI Security and Emerging Technologies
+---
 
+## Areas of Focus
 
-This repository showcases projects, labs, architectural designs, automation scripts, and research that demonstrate practical application of cybersecurity and cloud security principles.
+- Security Architecture
+- Cloud Security (GCP)
+- Zero Trust Architecture
+- Identity and Access Management (IAM)
+- Governance, Risk & Compliance (GRC)
+- Vulnerability Management
+- Policy-as-Code and Compliance Automation
+- AI Security and Emerging Technologies
 
-I am committed to continuous learning, knowledge sharing, and building secure solutions that enable business innovation.
+---
 
-Thank you for visiting my GitHub profile.
+## Projects
 
+| Project | Description |
+|---|---|
+| [GCP Hardened Landing Zone](https://github.com/Bigbadlonewolf/GCP-HARDENED-LANDING-ZONE) | Production-deployed GCP security baseline — CMEK, audit logging, VPC isolation, and OPA policy enforcement mapped to PCI DSS, NIST 800-53, and SOC 2 |
+| [Compliance as Code](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | OPA/Conftest policy engine enforcing PCI DSS v4.0, SOC 2, and NIST 800-53 controls against Terraform plans in CI — no cloud credentials required |
+| [Vulnerability Management Program](https://github.com/Bigbadlonewolf/Vulnerability-Management) | End-to-end vulnerability management lifecycle on Azure — policy drafting, stakeholder buy-in, credentialed scanning with Tenable, and a full remediation cycle (80% vuln reduction) |
+| [Security Architecture Portfolio](https://github.com/Bigbadlonewolf/Lanreoluokun.com) | Personal site documenting Architecture Decision Records (ADRs), project write-ups, and security design decisions |
 
+---
 
-## ⚠️ Vulnerability Management Projects
+## Connect
 
-- **[Vulnerability Management Program Implementation](https://github.com/Bigbadlonewolf/Vulnerability-Management/tree/main)**
-*
-
-## 
-
-<hr/>
-
-## 🤳 Connect With Me
-
-
-[<img align="left" alt="___________ | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="___________ | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-
-
-[twitter]: https://twitter.com/IAMOLANREWAJU
-[linkedin]: https://www.linkedin.com/in/lanre-oluokun-04256040
-<!--
-<img width="35" alt="image" src="https://github.com/user-attachments/assets/2f41c7cd-5ea8-4475-b451-a37161b6c3fb"> 
-<img width="35" alt="image" src="https://github.com/user-attachments/assets/77649969-9910-4994-8b96-74a116cfb2a8">
--->
+- [LinkedIn](https://www.linkedin.com/in/lanre-oluokun-04256040/)
+- [Twitter / X](https://twitter.com/IAMOLANREWAJU)
