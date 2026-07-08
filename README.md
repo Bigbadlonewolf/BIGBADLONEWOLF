@@ -30,7 +30,7 @@ Ten years in infrastructure and security before moving into cloud-native securit
 
 | Project | What it is | Status |
 |---|---|---|
-| **BankVault** | GCP Zero Trust JIT access broker for a loan origination workflow. PAM-based time-bound IAM grants, OIDC `auth_time`/`max_age=0` for MFA freshness validation, scoped to GLBA/NPI compliance. ADR-001 documents the architecture decisions and alternatives considered. | In progress — architecture locked, ADR-001 published |
+| [**BankVault**](https://github.com/Bigbadlonewolf/bankvault) | GCP Zero Trust JIT access broker for a loan origination workflow. GCP Privileged Access Manager (GA) issues time-bound IAM grants, OIDC `auth_time`/`max_age=0` gates MFA freshness at request time, scoped to GLBA/NPI compliance. ADR-001 through ADR-005 cover build-vs-buy, identity federation, scope/actor definition, MFA freshness, and the PAM grant/revocation lifecycle. | In progress: architecture locked, ADR-001–005 published |
 | **COMPLIANCE_AS_CODE** | OPA/Rego policy checks against Terraform plans, mapped to PCI DSS v4.0, SOC 2, NIST 800-53. Runs in GitHub Actions with no cloud credentials required. | Deployed — 50/50 passing tests, 5-job gated CI |
 | **ZTNA Reference Architecture** | 4-layer Zero Trust design for GCP: IAP, Istio mTLS, OPA default-deny, Terraform. | Designed — scaffolded, pending live org provisioning |
 | **Vulnerability Management Program** | End-to-end vulnerability management on Azure: Tenable credentialed scanning, CAB remediation cycle, 80% reduction in open findings. | Documented case study |
