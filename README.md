@@ -22,7 +22,7 @@ I work in GCP: identity, access, policy-as-code, and the compliance mapping that
 
 ## Certifications
 
-- **CISSP**, Certified Information Security Systems Professional
+- **CISSP**, Certified Information Systems Security Professional
 - **CCSP**, Certified Cloud Security Professional
 - **CISM**, Certified Information Security Manager
 - **ISSAP**, Information Systems Security Architecture Professional
