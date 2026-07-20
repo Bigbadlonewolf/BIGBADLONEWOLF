@@ -28,13 +28,16 @@ I work in GCP: identity, access, policy-as-code, and the compliance mapping that
 - **ISSAP**, Information Systems Security Architecture Professional
 - **GCP-PCA**, Google Cloud Professional Cloud Architect
 
+Digital badges available on request
+
 ---
 
 ## Projects
 
 | Project | What it is | Status |
 | --- | --- | --- |
-| [**BankVault**](https://github.com/Bigbadlonewolf/bankvault) | Zero Trust just-in-time access broker for a loan origination workflow. GCP Privileged Access Manager issues a 30-minute IAM grant scoped by CEL to a single credit-report object. OIDC `max_age=0` forces a fresh MFA event on every request, and the broker denies outright when the identity provider is down. GLBA-scoped. | In progress. Architecture locked, ADR-001 through ADR-005 published |
+| [**BankVault**](https://github.com/Bigbadlonewolf/bankvault) | Zero Trust just-in-time access broker for a loan origination workflow. GCP Privileged Access Manager issues a 30-minute IAM grant scoped by CEL to a single credit-report object. OIDC `max_age=0` forces a fresh MFA event on every request, and the broker denies outright when the identity provider is down. GLBA-scoped. | In progress. Architecture locked, ADR-001 through ADR-006 published |
+| [**JIT Access Broker**](https://github.com/Bigbadlonewolf/JIT-ACCESS-BROKER) | Design-phase GitHub-native PAM policy engine (OPA/Rego). | Provisioning and revocation workflows in progress |
 | [**Compliance as Code**](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | OPA/Rego policy checks against Terraform plans, mapped to PCI DSS v4.0, SOC 2 (CC6/CC7), and NIST 800-53. Runs in GitHub Actions with no cloud credentials required. | Shipped. 50/50 tests passing, five-job gated CI |
 | [**GCP Hardened Landing Zone**](https://github.com/Bigbadlonewolf/GCP-HARDENED-LANDING-ZONE) | Terraform security baseline: CMEK, audit logging, VPC isolation, and OPA policy enforcement mapped to PCI DSS v4.0, NIST 800-53, and SOC 2. | Reference architecture. Not deployed to production |
 | [**SecureVault**](https://github.com/Bigbadlonewolf/SecureVault) | GCP-native CSPM pipeline. Security Command Center findings route through Pub/Sub to a Cloud Function, which auto-remediates public buckets and open firewall rules and alerts on everything it does not recognize. | In progress |
@@ -49,7 +52,7 @@ Anything marked "in progress" still has a real ADR trail behind it. The reasonin
 
 I did not start in security.
 
-Ten years in retail banking operations at First Bank of Nigeria taught me what a regulated environment demands of a control long before anyone writes Terraform for it. Before that, IT support at British American Tobacco in Ibadan, covering 150+ workstations on ServiceNow. In between, I founded and ran Bloominglo Limited, a logistics business that reached roughly $650K in annual turnover, which is where I learned what it costs when a process fails quietly.
+Ten years in retail banking operations at First Bank of Nigeria taught me what a regulated environment demands of a control long before anyone writes Terraform for it. Before that, IT support at British American Tobacco in Ibadan, covering 150+ workstations on ServiceNow. In between, I founded and ran Bloominglo Limited, a logistics business with $500K+ annual revenue, which is where I learned what it costs when a process fails quietly.
 
 Then I rebuilt in the US. I earned the CISSP, CCSP, CISM, and ISSAP while working, completed a GCP Cloud Security Architect engagement at ATBOD (2022 to 2023), and worked as a Cloud Vulnerability Engineer at LOG(N) Pacific (2023 to 2024). I am currently deepening hands-on GCP architecture practice through the Go Cloud Careers program while building the portfolio above.
 
