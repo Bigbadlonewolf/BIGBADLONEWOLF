@@ -22,7 +22,7 @@ I work in GCP: identity, access, policy-as-code, and the compliance mapping that
 
 ## Certifications
 
-- **CISSP**, Certified Information Systems Security Professional
+- **CISSP**, Certified Information Security Systems Professional
 - **CCSP**, Certified Cloud Security Professional
 - **CISM**, Certified Information Security Manager
 - **ISSAP**, Information Systems Security Architecture Professional
@@ -37,11 +37,11 @@ Digital badges available on request
 | Project | What it is | Status |
 | --- | --- | --- |
 | [**BankVault**](https://github.com/Bigbadlonewolf/bankvault) | Zero Trust just-in-time access broker for a loan origination workflow. GCP Privileged Access Manager issues a 30-minute IAM grant scoped by CEL to a single credit-report object. OIDC `max_age=0` forces a fresh MFA event on every request, and the broker denies outright when the identity provider is down. GLBA-scoped. | In progress. Architecture locked, ADR-001 through ADR-006 published |
-| [**JIT Access Broker**](https://github.com/Bigbadlonewolf/JIT-ACCESS-BROKER) | Design-phase GitHub-native PAM policy engine (OPA/Rego). | Provisioning and revocation workflows in progress |
-| [**Compliance as Code**](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | OPA/Rego policy checks against Terraform plans, mapped to PCI DSS v4.0, SOC 2 (CC6/CC7), and NIST 800-53. Runs in GitHub Actions with no cloud credentials required. | Shipped. 50/50 tests passing, five-job gated CI |
+| [**JIT Access Broker**](https://github.com/Bigbadlonewolf/JIT-ACCESS-BROKER) | Design-phase GitHub-native PAM policy engine (OPA/Rego). | Policy engine tested (18/18). Provisioning and revocation workflows in progress |
+| [**Compliance as Code**](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | OPA/Rego policy checks against Terraform plans, mapped to PCI DSS v4.0, SOC 2 (CC6/CC7), and NIST 800-53. Runs in GitHub Actions with no cloud credentials required. | Shipped. 116/116 tests passing, five-job gated CI |
 | [**GCP Hardened Landing Zone**](https://github.com/Bigbadlonewolf/GCP-HARDENED-LANDING-ZONE) | Terraform security baseline: CMEK, audit logging, VPC isolation, and OPA policy enforcement mapped to PCI DSS v4.0, NIST 800-53, and SOC 2. | Reference architecture. Not deployed to production |
-| [**SecureVault**](https://github.com/Bigbadlonewolf/SecureVault) | GCP-native CSPM pipeline. Security Command Center findings route through Pub/Sub to a Cloud Function, which auto-remediates public buckets and open firewall rules and alerts on everything it does not recognize. | In progress |
-| [**Vulnerability Management Program**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | End-to-end vulnerability management on Azure: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, full remediation cycle. 80% reduction in open findings. | Documented case study |
+| [**SecureVault**](https://github.com/Bigbadlonewolf/SecureVault) | GCP-native CSPM pipeline. Security Command Center findings route through Pub/Sub to a Cloud Function designed to auto-remediate public buckets and open firewall rules and alert on everything it does not recognize. | In progress. Not yet deployed |
+| [**Vulnerability Management Program**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public vulnerability-management lab on Azure: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Completed course lab, with attribution |
 | [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | ADRs, project write-ups, and design reasoning. Hugo, deployed on GitHub Pages. | [Live](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
 Anything marked "in progress" still has a real ADR trail behind it. The reasoning is the deliverable as much as the code is.
