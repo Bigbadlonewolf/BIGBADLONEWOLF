@@ -1,6 +1,6 @@
 # Lanre Oluokun
 
-**Senior Cloud Security Engineer** | CISSP, CCSP, CISM, ISSAP, GCP-PCA
+**Cloud Security Engineer · Architecture-led** | CISSP, CCSP, CISM, ISSAP, GCP-PCA
 
 Most security portfolios show you the final diagram. That's the least interesting part. The diagram tells you what someone built; it tells you nothing about what they rejected, what they got wrong, or what the design still cannot do.
 
@@ -58,7 +58,7 @@ Then I rebuilt in the US. I earned the CISSP, CCSP, CISM, and ISSAP while workin
 
 That banking background is the reason I write ADRs the way I do. A control that cannot be explained to an examiner is a control that does not exist yet.
 
-I am targeting Senior Cloud Security Engineer and Security Engineer roles at banks and fintechs. The architecture-level thinking on this page is the evidence.
+I am targeting Cloud Security Engineer and Security Engineer roles at banks and fintechs. The architecture-level thinking on this page is the evidence.
 
 ---
 
