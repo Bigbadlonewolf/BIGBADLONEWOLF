@@ -8,7 +8,7 @@ So every project here ships with its architecture decision records. The rejected
 
 I work in GCP: identity, access, policy-as-code, and the compliance mapping that makes a control defensible to an examiner instead of merely green on a dashboard.
 
-**Most of these repositories are private.** Compliance as Code is the one that is open, its ADR included, and it is the closest public look at how I work. The decision records for the rest are available on request, and they are the artifact worth asking for.
+**Most of these repositories are private. The decisions are not.** Compliance as Code is the one open repository, its ADR included, and the three design cases below are published in full. The decision records for the private builds are available on request, and they are the artifact worth asking for.
 
 ---
 
@@ -24,6 +24,22 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 
 ---
 
+## The decisions
+
+Three scenarios for a regional bank, worked end to end and [published in full](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/). Each frames the problem before naming a component, and every commitment carries the alternative I rejected. An answer with no rejected alternative is a preference, not a decision.
+
+**[Migrate the payment API in 90 days, regulator watching](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-1-payment-api-migration/).** Tokenize at the payment service provider, so no card number ever reaches bank infrastructure. The cardholder data environment then collapses to the integration boundary and segmentation is answered by architecture rather than by compartmentalization. *Rejected:* an in-house token vault, which hands a three-person team a regulated environment to run for 90 days.
+
+The same case carries the decision I got wrong first. The access broker originally had its own revocation function and I deleted it, because Privileged Access Manager expires the grant on its own. What replaced it detects an overrun and does not contain one. So the defensible claim is "detected inside roughly one sweep," not "contained in fifteen minutes."
+
+**[Approving an AI vendor for KYC without losing the PII](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-2-ai-vendor-kyc/).** Approve with conditions, and the conditions are the design. The vendor has to read cleartext documents in order to process them, so past that boundary the control plane is contractual rather than technical. Encryption protects data in motion and at rest. It cannot protect data being processed. *Rejected:* pre-anonymizing the documents, which is broken for image processing and wrong in law for identity records the bank is required to retain.
+
+**[The board wants zero trust, and that is not a design](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-3-zero-trust-acquisition/).** Deliver it as a phased migration of trust decisions from network location to identity. Four testable properties, and anything that cannot be stated as one of them does not get budget. *Rejected:* buying a zero trust platform first, which automates the confusion at scale before anyone has unified identity.
+
+Before a control counts as a decision it answers four questions: who, through what system, enforced by what, and evidenced by what artifact. A control that survives only as a noun ("encryption", "DLP", "monitoring") is a category label waiting for a decision.
+
+---
+
 ## Selected work
 
 | Project | The architecture problem | State |
@@ -34,7 +50,7 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 | **GCP Hardened Landing Zone** | Terraform security baseline across four layers: CMEK, audit logging, VPC isolation, OPA enforcement. | Private repo. Reference architecture, not deployed |
 | **JIT Access Broker** | GitHub-native PAM policy engine in OPA/Rego. | Private repo. Policy engine built, provisioning and revocation in progress |
 | [**Vulnerability Management**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public Azure lab: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Public. Completed course lab, attributed |
-| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The career arc, and the BankVault and SecureVault write-ups. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
+| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The three design cases in full, the seven-step method behind them, and the career arc. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
 Anything marked private is available on request, decision records included, because the reasoning is the deliverable as much as the code is.
 
