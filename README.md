@@ -8,7 +8,7 @@ So every project here ships with its architecture decision records. The rejected
 
 I work in GCP: identity, access, policy-as-code, and the compliance mapping that makes a control defensible to an examiner instead of merely green on a dashboard.
 
-**The implementation repositories are private. The reasoning is not.** Every architecture decision record below is published in full on [my site](https://bigbadlonewolf.github.io/Lanreoluokun.com/). That is the artifact worth reading anyway.
+**The implementation repositories are private. The reasoning is not.** BankVault's six architecture decision records are published in full on [my site](https://bigbadlonewolf.github.io/Lanreoluokun.com/), the reversal included. That is the artifact worth reading anyway.
 
 ---
 
@@ -30,13 +30,13 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 | --- | --- | --- |
 | [**Compliance as Code**](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | One control, three frameworks, three copies of the detection logic that silently drifted apart. Detection now lives once in `policies/controls/`; PCI DSS v4.0, SOC 2 and NIST 800-53 packages attach citations only. | Public. 163/163 OPA tests, five gated CI jobs, [ADR-001](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE/blob/main/docs/adr/001-two-rail-control-engine.md) published |
 | **BankVault** | Standing access survives quarterly review. An underwriter gets 30 minutes against one credit report, scoped by IAM Condition, gated on a fresh MFA event, with the broker denying outright when the identity provider is down. GLBA-scoped. | Private repo. Six ADRs, [published in full](https://bigbadlonewolf.github.io/Lanreoluokun.com/posts/) |
-| **SecureVault** | Security Command Center findings pile up unread. Event-driven pipeline routes them through Pub/Sub to a Cloud Function that auto-remediates two finding types, escalates the rest, and refuses to act on anything it does not recognise. | Private repo. Nine ADRs, [eight published](https://bigbadlonewolf.github.io/Lanreoluokun.com/adrs/) |
+| **SecureVault** | Security Command Center findings pile up unread. Event-driven pipeline routes them through Pub/Sub to a Cloud Function that auto-remediates two finding types, escalates the rest, and refuses to act on anything it does not recognise. | Private repo. Nine ADRs, available on request |
 | **GCP Hardened Landing Zone** | Terraform security baseline across four layers: CMEK, audit logging, VPC isolation, OPA enforcement. | Private repo. Reference architecture, not deployed |
 | **JIT Access Broker** | GitHub-native PAM policy engine in OPA/Rego. | Private repo. Policy engine built, provisioning and revocation in progress |
 | [**Vulnerability Management**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public Azure lab: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Public. Completed course lab, attributed |
-| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | Where the architecture decision records live: every ADR in full text, and the design reasoning behind each one. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
+| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | Where the BankVault decision trail lives in full text, alongside the design reasoning behind it. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
-Anything marked private is available on request. The decision trail behind each one is public regardless, because the reasoning is the deliverable as much as the code is.
+Anything marked private is available on request, decision records included, because the reasoning is the deliverable as much as the code is.
 
 ---
 
