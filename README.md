@@ -8,7 +8,7 @@ So every project here ships with its architecture decision records. The rejected
 
 I work in GCP: identity, access, policy-as-code, and the compliance mapping that makes a control defensible to an examiner instead of merely green on a dashboard.
 
-**Most of these repositories are private. The decisions are not.** Compliance as Code is the one open repository, its ADR included, and the three design cases below are published in full. The decision records for the private builds are available on request, and they are the artifact worth asking for.
+**Most of these repositories are private. The decisions are not.** Compliance as Code is the one open repository, its ADR included, and [the three design cases](decisions.md) are published in full right here. The decision records for the private builds are available on request, and they are the artifact worth asking for.
 
 ---
 
@@ -26,17 +26,17 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 
 ## The decisions
 
-Three scenarios for a regional bank, worked end to end and [published in full](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/). Each frames the problem before naming a component, and every commitment carries the alternative I rejected. An answer with no rejected alternative is a preference, not a decision.
+Three scenarios for a regional bank, worked end to end. Each frames the problem before naming a component, and every commitment carries the alternative I rejected. An answer with no rejected alternative is a preference, not a decision.
 
-**[Migrate the payment API in 90 days, regulator watching](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-1-payment-api-migration/).** Tokenize at the payment service provider, so no card number ever reaches bank infrastructure. The cardholder data environment then collapses to the integration boundary and segmentation is answered by architecture rather than by compartmentalization. *Rejected:* an in-house token vault, which hands a three-person team a regulated environment to run for 90 days.
+| Case | The decision | Rejected |
+| --- | --- | --- |
+| [Migrate the payment API in 90 days, regulator watching](design-cases/case-1-payment-api-migration.md) | Tokenize at the payment service provider, so no card number reaches bank infrastructure and the cardholder data environment collapses to the integration boundary | An in-house token vault, which hands a three-person team a regulated environment to run |
+| [Approving an AI vendor for KYC without losing the PII](design-cases/case-2-ai-vendor-kyc.md) | Approve with conditions, because past the vendor boundary the control plane is contractual rather than technical | Pre-anonymizing the documents, which is broken for image processing and wrong in law for records the bank must retain |
+| [The board wants zero trust, and that is not a design](design-cases/case-3-zero-trust-acquisition.md) | A phased migration of trust decisions from network location to identity, expressed as four testable properties | Buying a platform first, which automates the confusion at scale before identity is unified |
 
-The same case carries the decision I got wrong first. The access broker originally had its own revocation function and I deleted it, because Privileged Access Manager expires the grant on its own. What replaced it detects an overrun and does not contain one. So the defensible claim is "detected inside roughly one sweep," not "contained in fifteen minutes."
+Case 1 also carries the decision I got wrong first. The access broker had its own revocation function and I deleted it, because Privileged Access Manager expires the grant on its own. What replaced it detects an overrun and does not contain one, so the defensible claim is "detected inside roughly one sweep," not "contained in fifteen minutes."
 
-**[Approving an AI vendor for KYC without losing the PII](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-2-ai-vendor-kyc/).** Approve with conditions, and the conditions are the design. The vendor has to read cleartext documents in order to process them, so past that boundary the control plane is contractual rather than technical. Encryption protects data in motion and at rest. It cannot protect data being processed. *Rejected:* pre-anonymizing the documents, which is broken for image processing and wrong in law for identity records the bank is required to retain.
-
-**[The board wants zero trust, and that is not a design](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/case-3-zero-trust-acquisition/).** Deliver it as a phased migration of trust decisions from network location to identity. Four testable properties, and anything that cannot be stated as one of them does not get budget. *Rejected:* buying a zero trust platform first, which automates the confusion at scale before anyone has unified identity.
-
-Before a control counts as a decision it answers four questions: who, through what system, enforced by what, and evidenced by what artifact. A control that survives only as a noun ("encryption", "DLP", "monitoring") is a category label waiting for a decision.
+**[Read the method and all three cases](decisions.md)**, or the [rendered versions](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/) on my site.
 
 ---
 
