@@ -34,7 +34,7 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 | **GCP Hardened Landing Zone** | Terraform security baseline across four layers: CMEK, audit logging, VPC isolation, OPA enforcement. | Private repo. Reference architecture, not deployed |
 | **JIT Access Broker** | GitHub-native PAM policy engine in OPA/Rego. | Private repo. Policy engine built, provisioning and revocation in progress |
 | [**Vulnerability Management**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public Azure lab: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Public. Completed course lab, attributed |
-| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The career arc, the BankVault and SecureVault write-ups, and short engineering notes. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
+| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The career arc, and the BankVault and SecureVault write-ups. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
 Anything marked private is available on request, decision records included, because the reasoning is the deliverable as much as the code is.
 
