@@ -4,11 +4,11 @@
 
 Most security portfolios show you the final diagram. That is the least interesting part. A diagram tells you what someone built. It tells you nothing about what they rejected, what they got wrong, or what the design still cannot do.
 
-So every project here ships with its architecture decision records. The rejected options are in there. So are the trade-offs I accepted and the assumptions I have not verified. In BankVault you can watch me reverse my own ADR-001 seven days after writing it, because the condition I named as a trigger for a rethink actually fired.
+So every project here ships with its architecture decision records. The rejected options are in there. So are the trade-offs I accepted and the assumptions I have not verified. In BankVault I reversed my own ADR-001 seven days after writing it, because the condition I had named as the trigger for a rethink actually fired.
 
 I work in GCP: identity, access, policy-as-code, and the compliance mapping that makes a control defensible to an examiner instead of merely green on a dashboard.
 
-**The implementation repositories are private. The reasoning is not.** BankVault's six architecture decision records are published in full on [my site](https://bigbadlonewolf.github.io/Lanreoluokun.com/), the reversal included. That is the artifact worth reading anyway.
+**Most of these repositories are private.** Compliance as Code is the one that is open, its ADR included, and it is the closest public look at how I work. The decision records for the rest are available on request, and they are the artifact worth asking for.
 
 ---
 
@@ -29,12 +29,12 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 | Project | The architecture problem | State |
 | --- | --- | --- |
 | [**Compliance as Code**](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE) | One control, three frameworks, three copies of the detection logic that silently drifted apart. Detection now lives once in `policies/controls/`; PCI DSS v4.0, SOC 2 and NIST 800-53 packages attach citations only. | Public. 163/163 OPA tests, five gated CI jobs, [ADR-001](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE/blob/main/docs/adr/001-two-rail-control-engine.md) published |
-| **BankVault** | Standing access survives quarterly review. An underwriter gets 30 minutes against one credit report, scoped by IAM Condition, gated on a fresh MFA event, with the broker denying outright when the identity provider is down. GLBA-scoped. | Private repo. Six ADRs, [published in full](https://bigbadlonewolf.github.io/Lanreoluokun.com/posts/) |
+| **BankVault** | Standing access survives quarterly review. An underwriter gets 30 minutes against one credit report, scoped by IAM Condition, gated on a fresh MFA event, with the broker denying outright when the identity provider is down. GLBA-scoped. | Private repo. Six ADRs, two of them reversals, available on request |
 | **SecureVault** | Security Command Center findings pile up unread. Event-driven pipeline routes them through Pub/Sub to a Cloud Function that auto-remediates two finding types, escalates the rest, and refuses to act on anything it does not recognise. | Private repo. Nine ADRs, available on request |
 | **GCP Hardened Landing Zone** | Terraform security baseline across four layers: CMEK, audit logging, VPC isolation, OPA enforcement. | Private repo. Reference architecture, not deployed |
 | **JIT Access Broker** | GitHub-native PAM policy engine in OPA/Rego. | Private repo. Policy engine built, provisioning and revocation in progress |
 | [**Vulnerability Management**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public Azure lab: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Public. Completed course lab, attributed |
-| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | Where the BankVault decision trail lives in full text, alongside the design reasoning behind it. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
+| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The career arc, the BankVault and SecureVault write-ups, and short engineering notes. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
 Anything marked private is available on request, decision records included, because the reasoning is the deliverable as much as the code is.
 
