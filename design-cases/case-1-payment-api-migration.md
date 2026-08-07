@@ -93,16 +93,16 @@ What survives is the useful part: the audit log of the grant lifecycle *is* the 
 
 ```mermaid
 flowchart LR
-    E["Engineer<br>read-only by default"] --> R["Request<br>with justification"]
+    E["Engineer<br>read-only by default"] --> R["Request<br>a tracked workflow"]
     R --> A["Approval<br>a second person"]
     A --> G["PAM grant<br>IAM Condition, one resource"]
     G --> X["Expiry<br>PAM, on its own"]
 
     E -. "emergencies only" .-> BG["Break-glass<br>two people, alarms on use<br>reviewed the next morning"]
 
-    G -. "reads grant state" .-> S["Reconcile sweep<br>every 15 minutes<br>read-only on PAM"]
+    G -. "reads grant state" .-> S["Reconcile sweep<br>read-only, on a schedule<br>detected inside one sweep"]
     S --> DET["Detects an overrun.<br>Does not contain one."]
-    DET -- "EXPIRE_FLAG row" --> L
+    DET -- "a flag on the ledger" --> L
 
     DEL["revoke_access - DELETED<br>PAM already owns expiry, and two<br>enforcement paths can disagree"]
 
