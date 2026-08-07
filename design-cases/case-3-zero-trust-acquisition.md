@@ -14,6 +14,37 @@ The acquired estate includes legacy applications that cannot be modified, with n
 
 The board named a framework. The architecture's job is to hand back testable properties: no implicit trust from network location, and every access authenticated, authorized, encrypted and logged. Anything that cannot be expressed as one of those four does not get budget, because it is marketing.
 
+```mermaid
+flowchart LR
+    subgraph BEFORE["Before - trust from network location"]
+        F["One foothold"]
+        F --> A1["App A"]
+        F --> A2["App B"]
+        F --> DB["Database"]
+        F --> PAY["Payments"]
+        F --> ADM["Admin"]
+        F --> PII["PII store"]
+    end
+
+    subgraph AFTER["After - identity, evaluated per request"]
+        U["User and device"] --> IAP["Identity-aware proxy<br>decides on every request"]
+        IAP --> W1["Workload"]
+        W1 -- "mTLS" --> W2["Workload"]
+        IAP --> LEG["Legacy app<br>wrapped, or segmented"]
+    end
+
+    PROPS["The four testable properties - anything else does not get budget<br>1 No implicit trust from network location - 2 Every access authenticated<br>3 Every access authorised and encrypted - 4 Every access logged"]
+
+    classDef key fill:#F7C948,stroke:#EAB938,color:#1A1A1A
+    class F,IAP key
+```
+
+*The left half is not a diagram of a bad network. It is a diagram of a network
+where **being inside is the authorisation**, which was reasonable when the
+perimeter was the building. The right half moves that decision to identity and
+makes it per request. The box underneath is what the board's word has to become
+before anyone can be held to it.*
+
 ## Scope
 
 **In:** access paths across both entities, covering user to application, workload to workload, and administrator to production. Unification of the workforce identity plane. Protection of the crown-jewel data stores, meaning payment flows and customer PII.
@@ -53,6 +84,27 @@ The board named a framework. The architecture's job is to hand back testable pro
 **3. Wrap the crown jewels, then migrate by data sensitivity.** Payment flows and customer PII stores get wrapped first, with proxied access, tightened egress and dedicated logging, without rebuilding them. Phases follow data sensitivity, not organizational convenience or whichever team volunteers.
 
 *Rejected:* big-bang re-architecture. Twelve-month transformation programs that defer all risk reduction to the end tend to die at month eight with nothing shipped. Phasing that front-loads the crown jewels means a breach at month four hits a smaller target than it would have at month one, and smaller again by month seven.
+
+```mermaid
+flowchart LR
+    P0["PHASE 0 - days 0 to 60<br>Asset inventory<br>IdP federation<br>Privileged accounts reconciled<br><br>Blast radius ████████"]
+    P1["PHASE 1<br>Crown jewels wrapped<br>Payment flows, PII stores<br>Proxied, egress tightened<br><br>Blast radius ██████"]
+    P2["PHASE 2<br>Identity-aware ingress<br>broadened in order of<br>data sensitivity<br><br>Blast radius ████"]
+    P3["PHASE 3<br>Legacy containment<br>Compensating control,<br>with an expiry review<br><br>Blast radius ██"]
+
+    P0 -- "Quarter 1" --> P1
+    P1 -- "Quarter 2" --> P2
+    P2 -- "Quarter 3" --> P3
+
+    classDef key fill:#F7C948,stroke:#EAB938,color:#1A1A1A
+    class P0 key
+```
+
+*The phases are ordinary. **The falling blast radius is the argument.** A
+programme that delivers its risk reduction in the last quarter is a programme
+that carries full exposure through three quarters of an integration, which is
+exactly the window in which acquisitions get breached. Reported to the board as
+exposure reduced in money, never as percent complete.*
 
 **4. Legacy containment, named as what it is.** Applications that cannot do modern authentication get wrapped by the proxy where it can reach them, and contained by network-level segmentation only where it cannot. Segmentation is used as a compensating control, written down as a compensating control, and given an expiry review date.
 
