@@ -33,6 +33,40 @@ If the vendor will not sign those, the recommendation flips to reject. A conditi
 3. **Vendor to its subprocessors.** If the service wraps a third-party foundation model, customer PII may reach a fourth party the bank never assessed. Subprocessor disclosure and approval rights are not boilerplate here. They are a trust boundary made visible.
 4. **The decision path.** Where does the model's output land? If it influences an onboarding accept or decline, fair-lending and adverse-action obligations attach to a model nobody can fully explain. This boundary sets the bank's regulatory exposure more than any technical one does.
 
+```mermaid
+flowchart LR
+    subgraph BANK["Bank environment"]
+        C["Capture channel<br>the bank controls it"] --> B["Bank systems<br>minimum image set"]
+    end
+
+    subgraph VENDOR["Vendor"]
+        AI["AI document processing<br>reads cleartext to work"]
+    end
+
+    subgraph SUB["Subprocessor"]
+        FM["Foundation model<br>a possible 4th party"]
+    end
+
+    B -- "BOUNDARY 2 - technical controls end,<br>contractual controls begin" --> AI
+    AI -- "BOUNDARY 3" --> FM
+
+    AI --> MO["Model output<br>advisory only"]
+    MO --> H["Human decision<br>or a deterministic rule"]
+    H --> OD["Onboarding decision<br>accept or decline"]
+    OD --> FL["BOUNDARY 4<br>fair lending and adverse action<br>obligations attach here"]
+
+    B -.-> TECH["What the bank can enforce<br>TLS in transit - customer-managed keys<br>minimum image set - every transmission logged"]
+    AI -.-> CON["What the bank can only agree<br>retention and deletion SLA - no training on bank data<br>subprocessor approval - breach notification - audit rights"]
+
+    classDef key fill:#F7C948,stroke:#EAB938,color:#1A1A1A
+    class AI,FL key
+```
+
+*Read the two dotted boxes rather than the flow. **Everything the bank can
+enforce sits before boundary two; everything after it is something the bank can
+only agree.** That is why the paperwork is the primary control here and not an
+administrative step that happens once the architecture is finished.*
+
 ## Assumptions
 
 1. **The vendor will sign the data-handling commitments.** If false, the recommendation flips to reject, and leadership hears it in those words.
@@ -47,6 +81,25 @@ This is the uncomfortable part of the design, and it is where the real work sits
 **2. Technical minimization, carrying what it can.** Transmit the minimum image set the check requires, not documents plus metadata plus account context, over TLS, to a regional processing endpoint, with customer-managed encryption keys where the vendor supports them. Log every document transmitted so the bank can prove exactly what crossed boundary two. Retain in the bank's own environment whatever AML record-keeping rules require.
 
 A correction worth stating plainly, because the instinct runs the other way: **KYC data is not anonymized.** Customer identification programs exist to verify identity, and the underlying records must be retained by law. Anonymizing KYC data would be a compliance violation wearing the costume of a control. Minimization governs what the vendor sees and keeps. Retention obligations govern what the bank must hold. Confusing the two fails in both directions at once.
+
+```mermaid
+flowchart TB
+    K["KYC document<br>passport, proof of address"]
+
+    K -- "minimisation governs<br>what leaves" --> OUT["What crosses to the vendor<br>the minimum image set the check requires<br><br>NOT SENT: account context, metadata,<br>unrelated documents"]
+    K -- "retention governs<br>what is kept" --> KEEP["What the bank must retain<br>identity records, for as long as the rules require<br><br>AND NOT ANONYMISED: identification<br>programmes exist to verify identity"]
+
+    OUT --> NOTE["Anonymising KYC data would be a compliance violation<br>wearing the costume of a control.<br>Confusing the two rules fails in both directions."]
+    KEEP --> NOTE
+
+    classDef key fill:#F7C948,stroke:#EAB938,color:#1A1A1A
+    class K,NOTE key
+```
+
+*Two rules pointing away from each other, applied to one document. The failure
+this exists to prevent is the reflex answer in an interview, where **anonymise
+the data** sounds like the responsible thing to say right up until someone asks
+how an identity check works on a record that no longer identifies anyone.*
 
 **3. Model governance.** The vendor's model gets the same discipline regulators apply to any consequential model: documented validation, ongoing monitoring for drift, and a challenger comparison on a sample of decisions. The exposure analysis, covering fair-lending risk, adverse-action reasoning and model risk management expectations, is written up as a decision record before the vendor goes live, so compliance review starts from an artifact rather than a promise to produce one.
 
