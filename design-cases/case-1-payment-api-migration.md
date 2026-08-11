@@ -96,9 +96,10 @@ of the design rather than by compartmentalising a problem it chose to keep.*
 **Mechanism test.**
 
 - *Who:* the engineer requests through a tracked GitHub issue.
-- *Through what:* a Terraform workspace applying IAM bindings carrying an `iam_condition` with an expiry timestamp.
-- *Enforced by:* required status checks on the Terraform repository with admin merge bypass disabled, branch protection, and the IAM Condition itself, which expires independently of any running process.
-- *Evidenced by:* an immutable Cloud Logging sink to a WORM bucket, queryable as a request → approval → grant → expiry chain.
+
+**Enforced by what:** the PAM entitlement. `max_request_duration` bounds the grant and PAM expires it natively, no running process required. Activation gated on approver justification from an approver group that is not `eligible_users`.
+
+**Evidenced by what artifact:** admin-activity logs for the grant, plus the broker's append-only ledger recording the verified OIDC identity and `auth_time`. The ledger's `approved_by` is self-asserted from the POST body and is not the SoD control; the PAM approval workflow is.
 
 One detail here is worth more than the rest of the design, because it is the part I got wrong first.
 
@@ -141,6 +142,8 @@ already been written. What replaced it **detects and does not contain**, which
 is a narrower claim and a true one.*
 
 *Rejected:* bastion hosts with standing SSH access. Unauditable standing privilege, which fails the second regulatory requirement by design.
+
+The reference build scaffolded Terraform IAM bindings with a CEL expiry condition in v1 — disabled by default (`count = 0`), never applied, never deployed. Replaced by GCP PAM's `max_request_duration` (ADR-005). Shown here as the design the build rejected.
 
 **4. Continuous compliance evidence.** Infrastructure changes pass policy-as-code evaluation in CI before merge, the pattern built in [Compliance as Code](https://github.com/Bigbadlonewolf/COMPLIANCE_AS_CODE): PCI DSS v4.0, SOC 2 and NIST 800-53 mappings, gated jobs, blocking on violation. Compliance posture becomes continuous and version-controlled instead of annual and screenshot-based.
 
