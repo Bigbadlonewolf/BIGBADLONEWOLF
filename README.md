@@ -8,7 +8,7 @@ So every project here ships with its architecture decision records. The rejected
 
 I work in GCP: identity, access, policy-as-code, and the compliance mapping that makes a control defensible to an examiner instead of merely green on a dashboard.
 
-**Most of these repositories are private. The decisions are not.** Compliance as Code is the one open repository, its ADR included, and [the three design cases](decisions.md) are published in full right here. The decision records for the private builds are available on request, and they are the artifact worth asking for.
+**Most of these repositories are private. The decisions are not.** Compliance as Code is the one open repository, its ADR included, and [the four design cases](decisions.md) are published in full right here. The decision records for the private builds are available on request, and they are the artifact worth asking for.
 
 ---
 
@@ -26,17 +26,20 @@ An architect is judged on the decisions, not the deliverables. Three habits I ca
 
 ## The decisions
 
-Three scenarios for a regional bank, worked end to end. Each frames the problem before naming a component, and every commitment carries the alternative I rejected. An answer with no rejected alternative is a preference, not a decision.
+Four scenarios for one regional bank, worked end to end. Each frames the problem before naming a component, and every commitment carries the alternative I rejected. An answer with no rejected alternative is a preference, not a decision. One bank profile runs through all four, so the money figures are comparable rather than invented per case.
 
 | Case | The decision | Rejected |
 | --- | --- | --- |
 | [Migrate the payment API in 90 days, regulator watching](design-cases/case-1-payment-api-migration.md) | Tokenize at the payment service provider, so no card number reaches bank infrastructure and the cardholder data environment collapses to the integration boundary | An in-house token vault, which hands a three-person team a regulated environment to run |
 | [Approving an AI vendor for KYC without losing the PII](design-cases/case-2-ai-vendor-kyc.md) | Approve with conditions, because past the vendor boundary the control plane is contractual rather than technical | Pre-anonymizing the documents, which is broken for image processing and wrong in law for records the bank must retain |
 | [The board wants zero trust, and that is not a design](design-cases/case-3-zero-trust-acquisition.md) | A phased migration of trust decisions from network location to identity, expressed as four testable properties | Buying a platform first, which automates the confusion at scale before identity is unified |
+| [Four thousand hardcoded credentials, and a payment pipeline that cannot stop](design-cases/case-4-secrets-credential-rotation.md) | One HSM-backed credential broker as the issuance plane, with the payment path failing static rather than closed so an outage blocks new issuance without stopping in-flight processing | Per-platform secret stores, cheaper up front and producing four partial audit logs where the regulator asked for one system of record |
 
 Case 1 also carries the decision I got wrong first. The access broker had its own revocation function and I deleted it, because Privileged Access Manager expires the grant on its own. What replaced it detects an overrun and does not contain one, so the defensible claim is "detected inside roughly one sweep," not "contained in fifteen minutes."
 
-**[Read the method and all three cases](decisions.md)**, or the [rendered versions](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/) on my site.
+Case 4 carries the figure I am least comfortable with and say so on the page: an eight-hour credential on the payment path, sized at four hours of unvalidated recovery target plus four hours of margin, with a twenty-four hour ceiling above which the recovery time gets fixed instead of the lease extended.
+
+**[Read the method and all four cases](decisions.md)**, or the [rendered versions](https://bigbadlonewolf.github.io/Lanreoluokun.com/design-cases/) on my site.
 
 ---
 
@@ -50,7 +53,7 @@ Case 1 also carries the decision I got wrong first. The access broker had its ow
 | **GCP Hardened Landing Zone** | Terraform security baseline across four layers: CMEK, audit logging, VPC isolation, OPA enforcement. | Private repo. Reference architecture, not deployed |
 | **JIT Access Broker** | GitHub-native PAM policy engine in OPA/Rego. | Private repo. Policy engine built, provisioning and revocation in progress |
 | [**Vulnerability Management**](https://github.com/Bigbadlonewolf/Vulnerability-Management) | Guided walkthrough of Josh Madakor's public Azure lab: policy drafting, stakeholder buy-in, credentialed Tenable scanning, CAB process, remediation cycle. | Public. Completed course lab, attributed |
-| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The three design cases in full, the seven-step method behind them, and the career arc. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
+| [**Personal Site**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) | The four design cases in full, the seven-step method behind them, and the career arc. Hugo, deployed on GitHub Pages. | [**Live**](https://bigbadlonewolf.github.io/Lanreoluokun.com/) |
 
 Anything marked private is available on request, decision records included, because the reasoning is the deliverable as much as the code is.
 
