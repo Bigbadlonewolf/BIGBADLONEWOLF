@@ -1,6 +1,6 @@
 # Lanre Oluokun
 
-**Enterprise Security Architect** | CISSP, CCSP, CISM, ISSAP, GCP-PCA
+**Cybersecurity Architect** | CISSP, CCSP, CISM, ISSAP, GCP-PCA
 
 Most security portfolios show you the final diagram. That is the least interesting part. A diagram tells you what someone built. It tells you nothing about what they rejected, what they got wrong, or what the design still cannot do.
 
